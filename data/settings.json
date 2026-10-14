@@ -1,0 +1,17 @@
+{
+  "phone1": "01130944299",
+  "phone2": "01130944399",
+  "whatsappNumber": "201130944299",
+  "whatsappNumber2": "201130944399",
+  "companyName": "هاتلي | Hattly",
+  "slogan": "سرعة.. دقة.. توصيل 🛵",
+  "tagline": "هاتلي... البراند اللي بيقربلك كل اللي محتاجه! مشوار أسهل، وقت أوفر، وطلبك لحد بابك.",
+  "priceMin": 15,
+  "priceMax": 20,
+  "extraAddressFee": 5,
+  "workHoursStart": "07:00",
+  "workHoursEnd": "04:00",
+  "workHoursNote": "من 7:00 صباحاً وحتى 4:00 بعد منتصف الليل",
+  "currency": "جنيه",
+  "adminPassword": "hatly2026"
+}

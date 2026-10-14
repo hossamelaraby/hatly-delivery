@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>هاتلي | Hattly - خدمة التوصيل السريع</title>
+  <meta name="description" content="هاتلي... البراند اللي بيقربلك كل اللي محتاجه! مشوار أسهل، وقت أوفر، وطلبك لحد بابك.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  
+  <!-- PWA & Mobile App Meta Tags -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f5b82e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="هاتلي">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased font-cairo">
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav-bar">
+    <div class="nav-container">
+      <div class="nav-actions-right">
+        <!-- Direct Download App Button -->
+        <a href="/download/hatly.apk" download="hatly.apk" id="btnInstallApp" class="btn-nav btn-install-app" onclick="handleDirectAppDownload(event)" title="تنزيل تطبيق هاتلي للاندرويد فوراً">
+          <i class="fas fa-download"></i>
+          <span>تنزيل التطبيق 📲</span>
+        </a>
+
+        <!-- Mobile App View (Smartphone Dimensions) -->
+        <a href="/app" class="btn-nav btn-phone-top" title="عرض نسخة التطبيق بأبعاد الموبايل">
+          <i class="fas fa-mobile-alt"></i>
+          <span>نسخة التطبيق 📱</span>
+        </a>
+
+        <a href="https://wa.me/201130944299" target="_blank" class="btn-nav btn-whatsapp-top">
+          <i class="fab fa-whatsapp"></i>
+          <span>اطلب واتساب</span>
+        </a>
+        <a href="tel:01130944399" class="btn-nav btn-phone-top">
+          <i class="fas fa-phone-alt"></i>
+          <span>01130944399</span>
+        </a>
+        <a href="tel:01130944299" class="btn-nav btn-phone-top">
+          <i class="fas fa-phone-alt"></i>
+          <span>01130944299</span>
+        </a>
+      </div>
+
+      <div class="nav-actions-left">
+        <a href="/admin" class="btn-nav-admin" title="لوحة التحكم">
+          <i class="fas fa-lock"></i>
+          <span>لوحة الإدارة</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="page-wrapper">
+
+    <!-- Hero Showcase Section -->
+    <section class="hero-card">
+      <!-- 3-Panel Visual Banner (Fruits, Vegetables, Supermarket) -->
+      <div class="banner-wrapper">
+        <div class="banner-triptych">
+          <div class="banner-col">
+            <img src="assets/banner_fruits.jpg" alt="فواكه طازجة" class="triptych-img">
+          </div>
+          <div class="banner-col">
+            <img src="assets/banner_veggies.jpg" alt="خضروات طازجة" class="triptych-img">
+          </div>
+          <div class="banner-col">
+            <img src="assets/banner_market.jpg" alt="سوبر ماركت" class="triptych-img">
+          </div>
+        </div>
+
+        <!-- Floating Circular Logo in Center -->
+        <div class="logo-floating-badge">
+          <img src="assets/logo.png" alt="لوجو هاتلي Hattly" class="hatly-logo-img">
+        </div>
+      </div>
+
+      <!-- Hero Information Card -->
+      <div class="hero-body">
+        <h1 class="brand-title">هاتلي | Hattly <span class="heart-icon">💛</span></h1>
+        <p class="brand-highlight">هاتلي... البراند اللي بيقربلك كل اللي محتاجه! 🛵</p>
+        <p class="brand-subtext">مشوار أسهل، وقت أوفر، وطلبك لحد بابك.</p>
+
+        <!-- Working Hours & Live Status Badge -->
+        <div class="work-status-bar" id="workStatusBar">
+          <span class="status-indicator-dot online"></span>
+          <span class="status-text" id="workStatusText">نستقبل طلباتكم الآن (مواعيد العمل: 7:00 ص - 4:00 فجراً)</span>
+        </div>
+
+        <!-- Quick Call & Order Buttons -->
+        <div class="hero-buttons-grid">
+          <a href="tel:01130944399" class="btn-contact-pill">
+            <i class="fas fa-phone-alt phone-ico"></i>
+            <span>01130944399</span>
+          </a>
+          <a href="tel:01130944299" class="btn-contact-pill">
+            <i class="fas fa-phone-alt phone-ico"></i>
+            <span>01130944299</span>
+          </a>
+          <a href="https://wa.me/201130944299?text=مرحباً%20هاتلي،%20أريد%20طلب%20توصيل" target="_blank" class="btn-whatsapp-hero">
+            <i class="fab fa-whatsapp"></i>
+            <span>اطلب دلوقتي على واتساب</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Order Form Card -->
+    <section class="order-form-card">
+      <div class="form-header">
+        <h2 class="form-title"><i class="fas fa-receipt text-yellow-500"></i> نموذج تسجيل الطلب</h2>
+        <p class="form-subtitle">سجل بياناتك ومطلوبك بالتفصيل وهنوصلهولك فوراً</p>
+      </div>
+
+      <form id="orderForm" novalidate>
+        
+        <!-- Two Column Grid: Name and Phone -->
+        <div class="form-grid-2">
+          <!-- Name Input -->
+          <div class="form-group">
+            <label for="customerName" class="form-label">
+              الاسم <span class="required-star">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="customerName" 
+              name="customerName" 
+              class="form-input" 
+              placeholder="اكتب اسمك" 
+              required
+            >
+            <div class="field-error" id="nameError">برجاء إدخال اسمك</div>
+          </div>
+
+          <!-- Mobile Phone Input -->
+          <div class="form-group">
+            <label for="phone" class="form-label">
+              رقم الموبايل <span class="required-star">*</span>
+            </label>
+            <div class="input-with-prefix">
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                class="form-input ltr-input" 
+                placeholder="01xxxxxxxxx" 
+                maxlength="11" 
+                required
+              >
+              <span class="input-icon"><i class="fas fa-mobile-alt"></i></span>
+            </div>
+            <div class="field-error" id="phoneError">برجاء إدخال رقم موبايل صحيح (11 رقم)</div>
+          </div>
+        </div>
+
+        <!-- Delivery Type Selection (Individual vs Combined) -->
+        <div class="form-group delivery-type-section">
+          <label class="form-label">نوع التوصيل</label>
+          <div class="delivery-toggle-grid">
+            
+            <!-- Individual Order Button -->
+            <button 
+              type="button" 
+              class="delivery-card-btn active" 
+              id="btnIndividual" 
+              onclick="setOrderType('individual')"
+            >
+              <div class="delivery-card-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="delivery-card-info">
+                <span class="delivery-card-title">طلب فردي</span>
+                <span class="delivery-card-sub">عنوان واحد</span>
+              </div>
+              <div class="card-check"><i class="fas fa-check-circle"></i></div>
+            </button>
+
+            <!-- Combined Order Button -->
+            <button 
+              type="button" 
+              class="delivery-card-btn" 
+              id="btnCombined" 
+              onclick="setOrderType('combined')"
+            >
+              <div class="delivery-card-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="delivery-card-info">
+                <span class="delivery-card-title">طلب مجمع</span>
+                <span class="delivery-card-sub">أكثر من عنوان</span>
+              </div>
+              <div class="card-check"><i class="fas fa-check-circle"></i></div>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Address Fields Container -->
+        <!-- Single Address (Shown when 'individual') -->
+        <div class="form-group" id="singleAddressSection">
+          <label for="address" class="form-label">
+            العنوان <span class="required-star">*</span>
+          </label>
+          <div class="address-input-wrapper">
+            <input 
+              type="text" 
+              id="address" 
+              name="address" 
+              class="form-input" 
+              placeholder="المدينة، الشارع، العمارة، الدور" 
+              required
+            >
+            <button type="button" class="btn-location-pin" onclick="detectLocation()" title="تحديد موقعي">
+              <i class="fas fa-crosshairs"></i>
+            </button>
+          </div>
+          <div class="field-error" id="addressError">برجاء إدخال العنوان بالتفصيل</div>
+        </div>
+
+        <!-- Multi-Address Section (Shown when 'combined') -->
+        <div class="form-group hidden" id="multiAddressSection">
+          <div class="multi-address-header">
+            <label class="form-label">
+              عناوين الطلب المجمع <span class="required-star">*</span>
+            </label>
+            <span class="extra-fee-badge" id="extraFeeBadge">
+              +0 جنيه إضافي
+            </span>
+          </div>
+
+          <p class="section-hint">أدخل مكان الاستلام (المحل/السوبرماركت) وأماكن التسليم المختلفة:</p>
+
+          <div id="addressInputsList" class="address-inputs-list">
+            <!-- Address 1 (Primary) -->
+            <div class="address-row" data-index="0">
+              <span class="address-tag base-tag">المكان 1 (الأساسي)</span>
+              <input 
+                type="text" 
+                class="form-input multi-address-field" 
+                placeholder="المكان الأول: مثلاً المحل أو السوبرماركت أو أول عنوان" 
+                required
+              >
+            </div>
+            
+            <!-- Address 2 (Second) -->
+            <div class="address-row" data-index="1">
+              <span class="address-tag extra-tag">المكان 2 (+5 ج)</span>
+              <input 
+                type="text" 
+                class="form-input multi-address-field" 
+                placeholder="المكان الثاني: الشارع، العمارة، الشقة..." 
+                required
+              >
+              <button type="button" class="btn-remove-row" onclick="removeAddressRow(this)" title="حذف">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Add Another Address Button -->
+          <button type="button" class="btn-add-address" onclick="addAddressRow()">
+            <i class="fas fa-plus-circle"></i>
+            <span>إضافة مكان / عنوان إضافي (+5 جنيه)</span>
+          </button>
+        </div>
+
+        <!-- Order Items / Details -->
+        <div class="form-group">
+          <label for="orderDetails" class="form-label">
+            الطلب <span class="required-star">*</span>
+          </label>
+          <textarea 
+            id="orderDetails" 
+            name="orderDetails" 
+            rows="4" 
+            class="form-textarea" 
+            placeholder="أي حاجة من أي مكان: اكتبها بالتفصيل والكميات" 
+            required
+          ></textarea>
+          <div class="field-error" id="detailsError">برجاء كتابة طلبك بالتفصيل</div>
+        </div>
+
+        <!-- Order Note (Optional) -->
+        <div class="form-group">
+          <label for="orderNote" class="form-label">
+            ملاحظة الطلب <span class="optional-tag">(اختياري)</span>
+          </label>
+          <textarea 
+            id="orderNote" 
+            name="orderNote" 
+            rows="2" 
+            class="form-textarea" 
+            placeholder="أي ملاحظة مهمة... مثلاً: البلكونة من الجنب"
+          ></textarea>
+        </div>
+
+        <!-- Estimated Delivery Price Highlight Box -->
+        <div class="estimated-price-box">
+          <div class="price-header-row">
+            <span class="price-label">التوصيل المتوقع</span>
+            <div class="price-pill" id="estimatedPricePill">
+              من 15 إلى 20 جنيه
+            </div>
+          </div>
+          <p class="price-subtext" id="priceSubtext">
+            التوصيل الفردي من 15 لـ 20 جنيه — والطلب المجمع يزيد 5 جنيه لكل مكان إضافي.
+          </p>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-section">
+          <button type="submit" class="btn-submit-order" id="submitBtn">
+            <i class="fab fa-whatsapp whatsapp-btn-icon"></i>
+            <span>تأكيد الطلب وتحويل على واتساب</span>
+          </button>
+        </div>
+
+        <!-- Alternative Direct Call Link -->
+        <div class="direct-call-footer">
+          أو كلمنا مباشرة على 
+          <a href="tel:00201130944299" class="phone-link">00201130944299</a>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- Footer info -->
+    <footer class="app-footer">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="هاتلي" class="footer-logo-img">
+        <span>هاتلي HATTLY — سرعة.. دقة.. توصيل</span>
+      </div>
+      <p class="footer-copy">جميع الحقوق محفوظة &copy; 2026 شركة هاتلي لخدمات التوصيل</p>
+    </footer>
+
+  </main>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/201130944299?text=مرحباً%20هاتلي،%20أريد%20الاستفسار%20عن%20التوصيل" target="_blank" class="floating-whatsapp-btn" title="تواصل عبر واتساب">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Success & WhatsApp Confirmation Modal -->
+  <div class="modal-overlay hidden" id="successModal">
+    <div class="modal-box">
+      <div class="modal-header-success">
+        <div class="success-icon-badge">
+          <i class="fas fa-check"></i>
+        </div>
+        <h3 class="modal-title">تم تسجيل طلبك بنجاح!</h3>
+        <p class="modal-subtitle">سيتم نقلك إلى محادثة واتساب لتأكيد الطلب مع الكابتن</p>
+      </div>
+
+      <div class="modal-order-card">
+        <div class="modal-order-row">
+          <span class="m-label">رقم الطلب:</span>
+          <span class="m-value m-order-id" id="modalOrderId">#HT-261013-001</span>
+        </div>
+        <div class="modal-order-row">
+          <span class="m-label">الاسم:</span>
+          <span class="m-value" id="modalCustomerName">-</span>
+        </div>
+        <div class="modal-order-row">
+          <span class="m-label">رقم الهاتف:</span>
+          <span class="m-value" id="modalPhone">-</span>
+        </div>
+        <div class="modal-order-row">
+          <span class="m-label">نوع التوصيل:</span>
+          <span class="m-value" id="modalOrderType">-</span>
+        </div>
+        <div class="modal-order-row">
+          <span class="m-label">التوصيل المتوقع:</span>
+          <span class="m-value text-gold" id="modalEstimatedPrice">-</span>
+        </div>
+        <div class="modal-order-details-box" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed #cbd5e1; font-size: 13px; text-align: right;">
+          <div style="font-weight: 800; color: #374151; margin-bottom: 4px;"><i class="fas fa-shopping-bag"></i> تفاصيل الطلب:</div>
+          <div id="modalOrderDetails" style="color: #1f2937; white-space: pre-line; background: #ffffff; padding: 8px; border-radius: 6px; border: 1px solid #e5e7eb;">-</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" id="modalWhatsappLink" target="_blank" class="btn-modal-primary">
+          <i class="fab fa-whatsapp"></i>
+          <span>فتح واتساب الآن وإرسال الرسالة</span>
+        </a>
+        <button type="button" class="btn-copy-wa-msg" onclick="copyOrderWhatsAppMessage()" style="display:flex; align-items:center; justify-content:center; gap:8px; padding:10px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:10px; font-weight:700; font-size:13px; cursor:pointer; font-family:inherit;">
+          <i class="far fa-copy"></i>
+          <span>نسخ نص الرسالة بالكامل</span>
+        </button>
+        <button type="button" class="btn-modal-secondary" onclick="closeSuccessModal()">
+          <span>إغلاق وتسجيل طلب آخر</span>
+        </button>
+      </div>
+    </div>
+  <!-- App Install & Download Modal -->
+  <div class="modal-overlay hidden" id="installAppModal">
+    <div class="modal-box">
+      <div class="modal-header-success" style="text-align:center;">
+        <img src="assets/logo.png" alt="هاتلي" style="width:72px; height:72px; border-radius:50%; border:3px solid var(--primary-yellow); margin-bottom:12px; box-shadow: 0 4px 12px rgba(245,184,46,0.4);">
+        <h3 class="modal-title">تطبيق هاتلي لخدمات التوصيل (HATTLY)</h3>
+        <p class="modal-subtitle">اختر الطريقة الأنسب لك لتشغيل التطبيق على هاتفك بنفس السرعة والسهولة</p>
+      </div>
+
+      <!-- App Download / Install Options -->
+      <div class="app-install-options">
+        
+        <!-- Option 1: Instant 1-Tap Home Screen Install (Works on all Androids & iPhones) -->
+        <button type="button" id="btnConfirmInstallPwa" onclick="executePwaInstall()" class="btn-install-option btn-option-instant">
+          <div class="option-icon-box">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="option-text-wrapper">
+            <span class="option-title">تثبيت فوري على شاشة الهاتف 📲</span>
+            <span class="option-desc">تثبيت مباشر بنقرة واحدة كأي تطبيق رسمي (أندرويد وآيفون) - بدون استهلاك مساحة</span>
+          </div>
+        </button>
+
+        <!-- Option 2: Direct APK Download -->
+        <a href="/download/hatly.apk" download="hatly.apk" class="btn-install-option btn-option-apk" onclick="trackApkDownload()">
+          <div class="option-icon-box">
+            <i class="fab fa-android"></i>
+          </div>
+          <div class="option-text-wrapper">
+            <span class="option-title">تحميل ملف التطبيق للاندرويد (Hatly.apk) 📥</span>
+            <span class="option-desc">حزمة APK مخصصة لكافة هواتف الأندرويد (تثبيت مباشر)</span>
+          </div>
+        </a>
+
+        <!-- Option 3: Full Project Source ZIP -->
+        <a href="/downloads/hatly-android-app.zip" download="hatly-android-app.zip" class="btn-install-option btn-option-zip">
+          <div class="option-icon-box">
+            <i class="fas fa-file-archive"></i>
+          </div>
+          <div class="option-text-wrapper">
+            <span class="option-title">تحميل حزمة مشروع التطبيق كاملة (ZIP) 📦</span>
+            <span class="option-desc">مشروع Android Studio الكامل والملفات المصدرية للتطبيق</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Device Compatibility Box -->
+      <div class="compat-devices-bar">
+        <strong><i class="fas fa-check-circle" style="color:#10b981;"></i> متوافق مع كافة أجهزة الأندرويد وجميع الإصدارات:</strong>
+        <div class="compat-tags-row">
+          <span class="compat-tag">Samsung Galaxy</span>
+          <span class="compat-tag">Xiaomi / Redmi / Poco</span>
+          <span class="compat-tag">Oppo / Realme</span>
+          <span class="compat-tag">Vivo / Huawei</span>
+          <span class="compat-tag">Android 11 / 12 / 13 / 14 / 15</span>
+        </div>
+      </div>
+
+      <!-- Instructions for manual install if prompt is blocked -->
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px; text-align:right; font-size:13px; margin-bottom:16px; line-height:1.7;">
+        <div id="installAndroidStep" style="margin-bottom:8px;">
+          <strong>📱 لهواتف أندرويد (Chrome / متصفح سامسونج / شاومي):</strong>
+          <p style="margin:2px 0 0 0; color:#475569;">اضغط على <strong>"تثبيت فوري"</strong> أعلاه، أو اضغط على قائمة المتصفح <strong>(⋮)</strong> ثم اختر <strong>"تثبيت التطبيق"</strong> أو <strong>"إضافة إلى الشاشة الرئيسية"</strong>.</p>
+        </div>
+        <div id="installIosStep" style="border-top:1px dashed #cbd5e1; padding-top:8px;">
+          <strong>🍏 لهواتف آيفون (Safari):</strong>
+          <p style="margin:2px 0 0 0; color:#475569;">اضغط على زر المشاركة <strong>(Share <i class="fas fa-share-square"></i>)</strong> ثم اختر <strong>"إضافة إلى الشاشة الرئيسية" (Add to Home Screen ➕)</strong>.</p>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-modal-secondary" onclick="closeInstallModal()" style="width:100%;">
+          <span>إغلاق النافذة</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toastMessage" class="toast-message hidden"></div>
+
+  <!-- Frontend Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

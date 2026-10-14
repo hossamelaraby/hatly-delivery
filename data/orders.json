@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1791915132155",
+    "orderId": "HT-261013-002",
+    "customerName": "محمود حسن",
+    "phone": "01012345678",
+    "orderType": "combined",
+    "address": "",
+    "addresses": [
+      "سوبر ماركت مترو - شارع النصر",
+      "البيت: عمارة 4 شارع دمشق"
+    ],
+    "orderDetails": "كرتونة مياه معدنية + 3 علب لبن",
+    "orderNote": "الدفع كاش",
+    "estimatedPriceText": "من 20 إلى 25 جنيه",
+    "estimatedPriceValue": {
+      "min": 20,
+      "max": 25
+    },
+    "status": "new",
+    "createdAt": "2026-10-13T18:12:12.155Z",
+    "createdAtFormatted": "١٣‏/١٠‏/٢٠٢٦، ٩:١٢ م"
+  },
+  {
+    "id": "1791915132087",
+    "orderId": "HT-261013-001",
+    "customerName": "أحمد محمد",
+    "phone": "01130944299",
+    "orderType": "individual",
+    "address": "القاهرة، المعادي، شارع 9، عمارة 12، الدور الثالث",
+    "addresses": [],
+    "orderDetails": "2 برجر لحمة دوبل، 1 كانز كولا",
+    "orderNote": "البلكونة من الجنب والاتصال عند الوصول",
+    "estimatedPriceText": "من 15 إلى 20 جنيه",
+    "estimatedPriceValue": {
+      "min": 15,
+      "max": 20
+    },
+    "status": "new",
+    "createdAt": "2026-10-13T18:12:12.087Z",
+    "createdAtFormatted": "١٣‏/١٠‏/٢٠٢٦، ٩:١٢ م"
+  }
+]
