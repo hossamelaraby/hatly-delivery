@@ -4,12 +4,13 @@
   "webDir": "public",
   "bundledWebRuntime": false,
   "server": {
+    "url": "https://hatly-delivery.vercel.app/app",
     "cleartext": true,
     "androidScheme": "https"
   },
   "android": {
     "allowMixedContent": true,
     "captureInput": true,
-    "webContentsDebuggingEnabled": true
+    "webContentsDebuggingEnabled": false
   }
 }
