@@ -366,6 +366,101 @@
       text-decoration: none;
       flex-shrink: 0;
       border: 1px solid #e2e8f0;
+      cursor: pointer;
+    }
+
+    /* Mobile Dual Phone Direct Call Card */
+    .mobile-quick-call-card {
+      margin: 12px 14px 14px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      border: 1.5px solid #fef08a;
+    }
+
+    .quick-call-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .quick-call-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quick-call-title i {
+      color: #eab308;
+      font-size: 14px;
+    }
+
+    .quick-call-hint {
+      font-size: 11px;
+      color: #16a34a;
+      font-weight: 700;
+      background: #dcfce7;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .quick-call-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-direct-call {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1.5px solid #fcd34d;
+      border-radius: 14px;
+      padding: 10px 8px;
+      text-decoration: none;
+      color: #78350f;
+      font-weight: 800;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(245, 184, 46, 0.15);
+    }
+
+    .btn-direct-call:hover, .btn-direct-call:active {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 184, 46, 0.3);
+      border-color: #f59e0b;
+      background: #fef08a;
+    }
+
+    .btn-direct-call .call-badge {
+      font-size: 10px;
+      background: #f59e0b;
+      color: #ffffff;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-direct-call .call-num-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      direction: ltr;
+      font-family: inherit;
+    }
+
+    .btn-direct-call .call-num-row i {
+      font-size: 12px;
+      color: #d97706;
     }
   </style>
 </head>
@@ -417,13 +512,13 @@
       <section class="mobile-banner-section">
         <div class="mobile-banner-triptych">
           <div class="mobile-banner-col">
-            <img src="assets/banner_fruits.jpg" alt="فواكه">
+            <img src="assets/banner_fruits.jpg" alt="توصيل سريع بالموتوسيكل">
           </div>
           <div class="mobile-banner-col">
-            <img src="assets/banner_veggies.jpg" alt="خضار">
+            <img src="assets/banner_veggies.jpg" alt="استلام الأوردر من المطعم">
           </div>
           <div class="mobile-banner-col">
-            <img src="assets/banner_market.jpg" alt="سوبرماركت">
+            <img src="assets/banner_market.jpg" alt="تسليم الطلب للعميل عند الباب">
           </div>
         </div>
 
@@ -440,6 +535,33 @@
         <div class="mobile-status-pill">
           <span class="status-indicator-dot online"></span>
           <span id="workStatusText">نستقبل طلباتكم الآن (7 ص - 4 فجراً)</span>
+        </div>
+      </div>
+
+      <!-- Dual Phone Quick Direct Call Section (Visible directly on open) -->
+      <div class="mobile-quick-call-card">
+        <div class="quick-call-header">
+          <div class="quick-call-title">
+            <i class="fas fa-phone-volume"></i>
+            <span>اتصل بنا مباشرة لأي طلب:</span>
+          </div>
+          <span class="quick-call-hint">متاح اتصال فوري</span>
+        </div>
+        <div class="quick-call-buttons">
+          <a href="tel:01130944299" id="mobileDirectCall1" class="btn-direct-call" title="اتصال بالرقم الأول">
+            <span class="call-badge">هاتف 1 (الأساسي)</span>
+            <div class="call-num-row">
+              <i class="fas fa-phone-alt"></i>
+              <span id="mobilePhoneText1">01130944299</span>
+            </div>
+          </a>
+          <a href="tel:01130944399" id="mobileDirectCall2" class="btn-direct-call" title="اتصال بالرقم الثاني">
+            <span class="call-badge">هاتف 2 (الإضافي)</span>
+            <div class="call-num-row">
+              <i class="fas fa-phone-alt"></i>
+              <span id="mobilePhoneText2">01130944399</span>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -580,10 +702,10 @@
 
     <!-- Sticky Bottom Navigation Bar for Mobile Dimensions -->
     <div class="mobile-sticky-bottom-bar">
-      <!-- Call Button -->
-      <a href="tel:01130944399" class="btn-mobile-call-quick" title="اتصال هاتفي سريع">
+      <!-- Call Button (Opens Dual Line Selector Modal) -->
+      <button type="button" class="btn-mobile-call-quick" onclick="openPhoneSelectModal()" title="اتصال هاتفي سريع">
         <i class="fas fa-phone-alt"></i>
-      </a>
+      </button>
 
       <!-- WhatsApp Button -->
       <a href="https://wa.me/201130944299?text=مرحباً%20هاتلي،%20أريد%20طلب%20توصيل" target="_blank" class="btn-mobile-wa-quick" title="طلب مباشر واتساب">
@@ -598,6 +720,51 @@
     </div>
 
   </div> <!-- End Mobile Device Mockup Frame -->
+
+  <!-- Quick Phone Selector Modal for 2 Lines -->
+  <div class="modal-overlay hidden" id="phoneSelectModal">
+    <div class="modal-box">
+      <div class="modal-header-success" style="text-align:center;">
+        <div class="success-icon-badge" style="background:#fffbeb; color:#d97706; border-color:#fde68a;">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3 class="modal-title">اتصال سريع بخدمة عملاء هاتلي</h3>
+        <p class="modal-subtitle">اختر الرقم المناسب للاتصال المباشر بالكابتن:</p>
+      </div>
+
+      <div class="app-install-options" style="margin-top:14px;">
+        <a href="tel:01130944299" id="modalCallLine1" class="btn-install-option" style="border-color:#fcd34d; background:#fffbeb;">
+          <div class="option-icon-box" style="background:#fef3c7; color:#d97706;"><i class="fas fa-phone-alt"></i></div>
+          <div class="option-text-wrapper">
+            <span class="option-title">الخط الأول: <strong id="modalPhoneText1" style="direction:ltr; display:inline-block;">01130944299</strong></span>
+            <span class="option-desc">اتصال هاتفي مباشر بالكابتن أو المشرف</span>
+          </div>
+        </a>
+
+        <a href="tel:01130944399" id="modalCallLine2" class="btn-install-option" style="border-color:#fcd34d; background:#fffbeb;">
+          <div class="option-icon-box" style="background:#fef3c7; color:#d97706;"><i class="fas fa-phone-alt"></i></div>
+          <div class="option-text-wrapper">
+            <span class="option-title">الخط الثاني: <strong id="modalPhoneText2" style="direction:ltr; display:inline-block;">01130944399</strong></span>
+            <span class="option-desc">اتصال هاتفي مباشر بالرقم الإضافي</span>
+          </div>
+        </a>
+
+        <a href="https://wa.me/201130944299?text=مرحباً%20هاتلي،%20أريد%20طلب%20توصيل" target="_blank" id="modalWaQuick" class="btn-install-option" style="border-color:#bbf7d0; background:#f0fdf4;">
+          <div class="option-icon-box" style="background:#dcfce7; color:#16a34a;"><i class="fab fa-whatsapp"></i></div>
+          <div class="option-text-wrapper">
+            <span class="option-title">محادثة واتساب سريعة</span>
+            <span class="option-desc">شات مباشر وتأكيد سريع لأي طلب</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal-actions" style="margin-top:16px;">
+        <button type="button" class="btn-modal-secondary" onclick="closePhoneSelectModal()" style="width:100%;">
+          <span>إلغاء</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- App Download Modal -->
   <div class="modal-overlay hidden" id="installAppModal">

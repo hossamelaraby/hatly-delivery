@@ -69,6 +69,16 @@ function closeInstallModal() {
   if (modal) modal.classList.add('hidden');
 }
 
+function openPhoneSelectModal() {
+  const modal = document.getElementById('phoneSelectModal');
+  if (modal) modal.classList.remove('hidden');
+}
+
+function closePhoneSelectModal() {
+  const modal = document.getElementById('phoneSelectModal');
+  if (modal) modal.classList.add('hidden');
+}
+
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   fetchSettings();
@@ -118,17 +128,42 @@ function applyDynamicSettings() {
     if (appSettings.tagline) el.innerText = appSettings.tagline;
   });
 
-  // Update Phone buttons & links
-  if (appSettings.phone1) {
-    document.querySelectorAll('a[href^="tel:"]').forEach((link, idx) => {
-      const p = (idx % 2 === 0) ? appSettings.phone1 : (appSettings.phone2 || appSettings.phone1);
-      link.href = `tel:${p}`;
-      const span = link.querySelector('span');
-      if (span && !span.innerText.includes('اتصال')) {
-        span.innerText = p;
-      }
-    });
-  }
+  // Explicit Mobile Dual Call Card & Modal updates
+  const p1 = appSettings.phone1 || '01130944299';
+  const p2 = appSettings.phone2 || '01130944399';
+
+  const mob1 = document.getElementById('mobileDirectCall1');
+  if (mob1) mob1.href = `tel:${p1}`;
+  const mobText1 = document.getElementById('mobilePhoneText1');
+  if (mobText1) mobText1.innerText = p1;
+
+  const mob2 = document.getElementById('mobileDirectCall2');
+  if (mob2) mob2.href = `tel:${p2}`;
+  const mobText2 = document.getElementById('mobilePhoneText2');
+  if (mobText2) mobText2.innerText = p2;
+
+  const modalCall1 = document.getElementById('modalCallLine1');
+  if (modalCall1) modalCall1.href = `tel:${p1}`;
+  const modalPhone1 = document.getElementById('modalPhoneText1');
+  if (modalPhone1) modalPhone1.innerText = p1;
+
+  const modalCall2 = document.getElementById('modalCallLine2');
+  if (modalCall2) modalCall2.href = `tel:${p2}`;
+  const modalPhone2 = document.getElementById('modalPhoneText2');
+  if (modalPhone2) modalPhone2.innerText = p2;
+
+  // Update general Phone buttons & links across pages
+  document.querySelectorAll('a[href^="tel:"]').forEach((link, idx) => {
+    if (link.id === 'mobileDirectCall1' || link.id === 'mobileDirectCall2' || link.id === 'modalCallLine1' || link.id === 'modalCallLine2') {
+      return; // handled explicitly above
+    }
+    const p = (idx % 2 === 0) ? p1 : p2;
+    link.href = `tel:${p}`;
+    const span = link.querySelector('span');
+    if (span && !span.innerText.includes('اتصال') && !span.innerText.includes('خط') && !span.innerText.includes('هاتف')) {
+      span.innerText = p;
+    }
+  });
 
   // Update WhatsApp links
   if (appSettings.whatsappNumber) {
