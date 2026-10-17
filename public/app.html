@@ -458,18 +458,6 @@
           <div class="app-brand-tag">تطبيق التوصيل السريع 🛵</div>
         </div>
       </div>
-
-      <div class="app-header-actions">
-        <!-- Direct APK Download Button -->
-        <a href="/download/hatly.apk" download="hatly.apk" class="btn-app-download-top" onclick="trackApkDownload()" title="تنزيل التطبيق APK">
-          <i class="fas fa-download"></i>
-          <span>تحميل APK</span>
-        </a>
-        <!-- Install or Refresh -->
-        <button class="btn-app-icon" onclick="triggerAppInstall()" title="تثبيت التطبيق على الشاشة">
-          <i class="fas fa-mobile-alt"></i>
-        </button>
-      </div>
     </header>
 
     <!-- Scrollable Body with Mobile Dimensions -->
@@ -733,40 +721,6 @@
     </div>
   </div>
 
-  <!-- App Download Modal -->
-  <div class="modal-overlay hidden" id="installAppModal">
-    <div class="modal-box">
-      <div class="modal-header-success" style="text-align:center;">
-        <img src="assets/logo.png" alt="هاتلي" style="width:72px; height:72px; border-radius:50%; border:3px solid var(--primary-yellow); margin-bottom:12px; box-shadow: 0 4px 12px rgba(245,184,46,0.4);">
-        <h3 class="modal-title">تطبيق هاتلي لخدمات التوصيل (HATTLY)</h3>
-        <p class="modal-subtitle">اختر الطريقة الأنسب لتشغيل التطبيق على هاتفك</p>
-      </div>
-
-      <div class="app-install-options">
-        <button type="button" id="btnConfirmInstallPwa" onclick="executePwaInstall()" class="btn-install-option btn-option-instant">
-          <div class="option-icon-box"><i class="fas fa-bolt"></i></div>
-          <div class="option-text-wrapper">
-            <span class="option-title">تثبيت فوري على شاشة الهاتف 📲</span>
-            <span class="option-desc">تثبيت مباشر بنقرة واحدة كأي تطبيق رسمي (أندرويد وآيفون)</span>
-          </div>
-        </button>
-
-        <a href="/download/hatly.apk" download="hatly.apk" class="btn-install-option btn-option-apk" onclick="trackApkDownload()">
-          <div class="option-icon-box"><i class="fab fa-android"></i></div>
-          <div class="option-text-wrapper">
-            <span class="option-title">تحميل ملف التطبيق للاندرويد (Hatly.apk) 📥</span>
-            <span class="option-desc">ملف APK مخصص لكافة أجهزة أندرويد (تنزيل مباشر)</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn-modal-secondary" onclick="closeInstallModal()" style="width:100%;">
-          <span>إغلاق</span>
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- Success & WhatsApp Confirmation Modal -->
   <div class="modal-overlay hidden" id="successModal">
